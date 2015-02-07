@@ -4,11 +4,10 @@ body {
 
 .category-form,
 .task-form,
-.category-list,
 .task-list {
     margin: 20px 0 0;
 }
 
-a[data-status="2"] {
+.taskList  a[data-status="2"] {
     text-decoration: line-through;
 }
