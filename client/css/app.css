@@ -8,6 +8,6 @@ body {
     margin: 20px 0 0;
 }
 
-.taskList  a[data-status="2"] {
+.task-list li[data-status="2"] {
     text-decoration: line-through;
 }

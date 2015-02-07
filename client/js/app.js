@@ -5,7 +5,7 @@ function buildCategorySelect(selectedCategoryId) {
         // clear any existing categories
         $('select[name="category"]').empty();
 
-        // loop through response and populate categories
+        // loop through response and create categories
         for (var i = 0; i < response.length; i++) {
             $('select[name="category"]').append('<option value="' + response[i].id + '">'+response[i].name + '</option>');
         }
@@ -33,7 +33,7 @@ function buildTaskList() {
 
         // create task list items
         for (var j = 0; j < tasks[0].length; j++) {
-            $('.task-list ul[data-categoryId="' + tasks[0][j].category + '"]').append('<li><a href="#" data-taskId="' + tasks[0][j].id + '" data-status="' + tasks[0][j].status + '">' + tasks[0][j].name + '</a></li>');
+            $('.task-list ul[data-categoryId="' + tasks[0][j].category + '"]').append('<li data-status="' + tasks[0][j].status + '"><a href="#" data-taskId="' + tasks[0][j].id + '">' + tasks[0][j].name + '</a></li>');
         }
     });
 }
@@ -95,7 +95,7 @@ $('.task-list').on('click', 'a', function(e) {
 
     // get id and status of the task clicked
     var id = $(e.target).attr('data-taskId');
-    var status = $(e.target).attr('data-status');
+    var status = $(e.target).closest('li').attr('data-status');
 
     // build params object
     var params = {
